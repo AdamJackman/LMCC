@@ -10,7 +10,7 @@ import logParser.config.LogParserConfig;
 
 public class SingleThreadWriter implements ILogWriter {
 
-	static int counter = 1;
+	private int counter = 1;
 	private String outputDirectory;
 	
 	public SingleThreadWriter() {

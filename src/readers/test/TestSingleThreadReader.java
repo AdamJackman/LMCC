@@ -42,7 +42,7 @@ public class TestSingleThreadReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			//closeReaders(bfList);
+			closeReaders(lfList);
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class TestSingleThreadReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			//closeReaders(bfList);
+			closeReaders(lfList);
 		}
 	}
 	

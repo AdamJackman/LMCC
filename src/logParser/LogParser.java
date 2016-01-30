@@ -57,16 +57,14 @@ public class LogParser {
 		
 		//Loop
 		
-			//Give list to the readers to load into memory
-			//Reader will return List of loaded Files
-			reader.loadFiles(logFiles);
-			//If read was successful remove read files from list		
+		//Give list to the readers to load into memory
+		//Reader will populate the readers of the LogFiles given
+		reader.loadFiles(logFiles);	
 		
-			//Give this list to the writer to edit the File
-			//Writer will return Nothing
-			writer.write(logFiles);
+		//Give this list to the writer to edit the Files
+		writer.write(logFiles);
 		
-		//End Loop	
+		//End Loop
 	}
 	
 	/**
