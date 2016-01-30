@@ -69,11 +69,11 @@ public class LogFile {
 		return file;
 	}
 
-	public void setFile_(File file) {
+	public void setFile(File file) {
 		this.file = file;
 	}
 
-	public Calendar getCal_() {
+	public Calendar getCal() {
 		return cal;
 	}
 

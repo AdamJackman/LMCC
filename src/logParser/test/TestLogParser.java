@@ -7,8 +7,9 @@ import org.junit.Test;
 
 public class TestLogParser {
 
-	//Test 1 to init the program
+	//Test 1 to init the program - this is mainly just for dev purposes
 	@Test
+	@SuppressWarnings("unused")
 	public void testInit() {
 		LogParser parser = new LogParser();		
 	}

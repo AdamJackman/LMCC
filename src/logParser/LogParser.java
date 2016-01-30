@@ -4,6 +4,8 @@ import java.io.File;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import logParser.config.LogParserConfig;
@@ -41,6 +43,34 @@ public class LogParser {
 	public void parseLogs(){
 		
 		//Grab all the file names from the target directory (Add to a List)
+		List<LogFile> logFiles = generateLogFileList();
+
+		//Sort all file names in the target directory
+		Collections.sort(logFiles, new Comparator<LogFile>() {			
+			@Override
+			//We are sorting by the calendar in the LogFile object
+			public int compare(LogFile l1, LogFile l2) {
+				return l1.getCal().compareTo(l2.getCal());
+			}
+		});
+		
+		//Loop
+		
+			//Give list to the readers to load into memory
+			//Reader will return List of loaded Files
+			//If read was successful remove read files from list		
+		
+			//Give this list to the writer to edit the File
+			//Writer will return Nothing
+		
+		//End Loop	
+	}
+	
+	/**
+	 * Take the target directory and find all valid log files in it 
+	 * @return List of LogFile objects each representing a logfile in the directory
+	 */
+	public List<LogFile> generateLogFileList(){
 		File folder = new File(targetDirectory);
 		File[] listOfFiles = folder.listFiles();
 		List<LogFile> logFiles = new ArrayList<LogFile>();
@@ -55,23 +85,10 @@ public class LogParser {
 					logFiles.add(lf);
 				}
 			}
-	    }
-		
-		//Filter out files that are not of the correct format
-		//Sort all file names in the target directory 
-		
-		//Loop
-		
-			//Give list to the readers to load into memory
-			//Reader will return List of loaded Files
-			//If read was successful remove read files from list		
-		
-			//Give this list to the writer to edit the File
-			//Writer will return Nothing
-		
-		//End Loop	
+	    }	    
+	    return logFiles;		
 	}
-
+	
 	public boolean checkLogFileFormat(String fileName){
 		String [] split = fileName.split("\\.");
 		
@@ -86,6 +103,5 @@ public class LogParser {
 						
 		return true;
 	}
-	
 	
 }
