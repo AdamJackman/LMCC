@@ -11,6 +11,8 @@ import writers.ILogWriter;
  */
 public class LogParserConfig {
 	
+	private static final String PROJECT_BASE = "C:/DevEnv/LMCC/src/";
+	
 	public LogParserConfig(){		
 	}
 	
@@ -23,7 +25,7 @@ public class LogParserConfig {
 	}
 	
 	public String getDefaultTargetDirectory(){
-		return "logParser.test";
+		return PROJECT_BASE + "logParser/test";
 	}
 	
 	
