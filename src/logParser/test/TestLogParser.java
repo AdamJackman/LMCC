@@ -28,13 +28,12 @@ public class TestLogParser {
 		assertTrue(test);
 		//The Date is purposely not checked here due to the overhead of formatting, an unchecked segment here is fine
 		test = parser.checkLogFileFormat("logging.uncheckedSegment.log");
-		assertTrue(test);
-		
+		assertTrue(test);		
 		test = parser.checkLogFileFormat("logtest.2016-01-30.txt");
 		assertFalse(test);
 		test = parser.checkLogFileFormat("logtest.2016-01-30.log.log");
 		assertFalse(test);
-	}
+	}	
 
 
 }

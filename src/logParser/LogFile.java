@@ -19,14 +19,15 @@ public class LogFile {
 	private String fileName;
 	private File file;
 	private Calendar cal;
-	
+	private String content;
+
 	public LogFile(){
 		
 	}
 	
 	public LogFile(File file, String fileName){
 		this.file = file;
-		this.fileName = fileName;				
+		this.fileName = fileName;		
 	}
 	
 	/**
@@ -54,14 +55,13 @@ public class LogFile {
 			return false;
 		}
 		return true;
-	}
+	}	
 	
 	
 	//Getter /Setters
 	public String getFileName() {
 		return fileName;
 	}
-
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
@@ -80,4 +80,12 @@ public class LogFile {
 	public void setCal(Calendar cal) {
 		this.cal = cal;
 	}
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 }

@@ -1,6 +1,6 @@
 package writers;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.util.List;
 
 /**
@@ -16,6 +16,6 @@ public interface ILogWriter {
 	 * @param filesToWrite
 	 * @return -1 for error, 0 otherwise;
 	 */
-	public int write(List<File> filesToWrite);
+	public int write(List<BufferedReader> filesToWrite);
 	
 }

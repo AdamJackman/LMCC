@@ -1,5 +1,6 @@
 package logParser;
 
+import java.io.BufferedReader;
 import java.io.File;
 
 
@@ -58,10 +59,12 @@ public class LogParser {
 		
 			//Give list to the readers to load into memory
 			//Reader will return List of loaded Files
+			List<BufferedReader> openReaders = reader.loadFiles(logFiles);
 			//If read was successful remove read files from list		
 		
 			//Give this list to the writer to edit the File
 			//Writer will return Nothing
+			writer.write(openReaders);
 		
 		//End Loop	
 	}
@@ -74,6 +77,11 @@ public class LogParser {
 		File folder = new File(targetDirectory);
 		File[] listOfFiles = folder.listFiles();
 		List<LogFile> logFiles = new ArrayList<LogFile>();
+		
+		if(listOfFiles == null){
+			System.out.println("Target: " + targetDirectory + " is not a directory");
+			return null;
+		}
 
 		//For each file in the directory check if it is a logFile, if so add to the List
 	    for (int i = 0; i < listOfFiles.length; i++) {	    	

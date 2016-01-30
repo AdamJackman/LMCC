@@ -1,7 +1,9 @@
 package logParser.config;
 
 import readers.ILogReader;
+import readers.SingleThreadReader;
 import writers.ILogWriter;
+import writers.SingleThreadWriter;
 
 /**
  * Used to Configure Log Parser. 
@@ -10,22 +12,22 @@ import writers.ILogWriter;
  * @author Adam
  */
 public class LogParserConfig {
-	
+		
 	private static final String PROJECT_BASE = "C:/DevEnv/LMCC/src/";
 	
 	public LogParserConfig(){		
 	}
 	
 	public ILogReader getLogReader(){
-		return null;
+		return new SingleThreadReader();
 	}
 	
 	public ILogWriter getLogWriter(){
-		return null;
+		return new SingleThreadWriter();
 	}
 	
 	public String getDefaultTargetDirectory(){
-		return PROJECT_BASE + "logParser/test";
+		return PROJECT_BASE + "logParser/test/";
 	}
 	
 	

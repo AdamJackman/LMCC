@@ -1,7 +1,9 @@
 package readers;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.util.List;
+
+import logParser.LogFile;
 
 /**
  * The job of a reader is to take as input a List of Strings representing file names.
@@ -15,5 +17,5 @@ public interface ILogReader {
 		/**
 		 * Load the given filenames
 		 */
-		public List<File> loadFiles(List<String> fileNameList);
+		public List<BufferedReader> loadFiles(List<LogFile> fileNameList);
 }
