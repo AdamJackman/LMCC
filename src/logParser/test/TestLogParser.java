@@ -15,6 +15,7 @@ import logParser.config.LogParserConfig;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
 public class TestLogParser {
 
@@ -25,7 +26,6 @@ public class TestLogParser {
 	public void init(){
 		config = new LogParserConfig();
 		parser = new LogParser();
-		parser.parseLogs();
 	}
 	
 	//Test 1 to init the program - this is mainly just for dev purposes
@@ -47,9 +47,22 @@ public class TestLogParser {
 		assertFalse(test);
 		test = parser.checkLogFileFormat("logtest.2016-01-30.log.log");
 		assertFalse(test);
-	}	
+	}
 	
 	@Test
+	public void testOutput(){
+		parser.parseLogs();
+		try{
+			testOutputPlaced();	
+			testOutputPlaced2();
+			testOutputPlaced3();
+		} catch (Exception e){
+			System.out.println("Failed with Exception: " + e);
+			fail();			
+		}
+		
+	}
+	
 	public void testOutputPlaced() throws IOException{
 		String outputDir = config.getDefaultOutputDirectory();
 		String testFile = "logtest.2016-01-30.log";
@@ -61,7 +74,6 @@ public class TestLogParser {
     	reader.close();		
 	}
 	
-	@Test
 	public void testOutputPlaced2() throws IOException{		
 		String outputDir = config.getDefaultOutputDirectory();
 		String testFile = "logtest.2016-01-31.log";
@@ -73,7 +85,6 @@ public class TestLogParser {
     	reader.close();		
 	}
 	
-	@Test
 	public void testOutputPlaced3() throws IOException{
 		String outputDir = config.getDefaultOutputDirectory();
 		String testFile = "logtest.2016-02-01.log";

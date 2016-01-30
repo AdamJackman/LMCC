@@ -15,7 +15,7 @@ public class LogParserConfig {
 	
 	//In the program's current state these 2 variables should be set to edit the behaviour to user wants.
 	private static final boolean DEV_MODE = true;	
-	private static final String PROJECT_BASE = "C:/DevEnv/LMCC/src/";
+	private static final String PROJECT_BASE = System.getProperty("user.dir") +"/src/";
 	
 	public LogParserConfig(){		
 	}
