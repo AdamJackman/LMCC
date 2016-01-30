@@ -1,5 +1,6 @@
 package logParser;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,8 +10,10 @@ import java.util.Date;
 /**
  * The purpose of this class is to remember the date that the logFile is from.
  * This means it does not need to be recalculated at every step.
+ * 
+ * The class also holds the BufferedReader as to be easily read.
+ * 
  * @author Adam
- *
  */
 public class LogFile {
 	
@@ -19,7 +22,7 @@ public class LogFile {
 	private String fileName;
 	private File file;
 	private Calendar cal;
-	private String content;
+	private BufferedReader reader;
 
 	public LogFile(){
 		
@@ -80,12 +83,11 @@ public class LogFile {
 	public void setCal(Calendar cal) {
 		this.cal = cal;
 	}
-	public String getContent() {
-		return content;
+	public BufferedReader getReader() {
+		return reader;
 	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setReader(BufferedReader reader) {
+		this.reader = reader;
 	}
 	
 }

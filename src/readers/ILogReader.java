@@ -17,5 +17,5 @@ public interface ILogReader {
 		/**
 		 * Load the given filenames
 		 */
-		public List<BufferedReader> loadFiles(List<LogFile> fileNameList);
+		public void loadFiles(List<LogFile> fileNameList);
 }

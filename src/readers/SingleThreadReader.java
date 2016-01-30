@@ -17,9 +17,12 @@ public class SingleThreadReader implements ILogReader{
 	public SingleThreadReader(){
 		
 	}
-
-	public List<BufferedReader> loadFiles(List<LogFile> LogFileList) {
-		List<BufferedReader> buffList = new ArrayList<BufferedReader>();		
+	
+	/**
+	 * Sets up the buffered reader within a LogFile
+	 */
+	@Override
+	public void loadFiles(List<LogFile> LogFileList) {		
 		for( LogFile logFile : LogFileList){
 			String inputFile = logFile.getFile().getAbsolutePath();
 			try {
@@ -27,12 +30,11 @@ public class SingleThreadReader implements ILogReader{
 		    	InputStream stream = new FileInputStream(input);
 		    	BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 		    	//we can now read lines
-		    	buffList.add(reader);		        
+		    	logFile.setReader(reader);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}  	    	    		    	
 		}
-		return buffList;
 	}
 	
 }

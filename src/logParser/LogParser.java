@@ -59,12 +59,12 @@ public class LogParser {
 		
 			//Give list to the readers to load into memory
 			//Reader will return List of loaded Files
-			List<BufferedReader> openReaders = reader.loadFiles(logFiles);
+			reader.loadFiles(logFiles);
 			//If read was successful remove read files from list		
 		
 			//Give this list to the writer to edit the File
 			//Writer will return Nothing
-			writer.write(openReaders);
+			writer.write(logFiles);
 		
 		//End Loop	
 	}

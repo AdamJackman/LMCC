@@ -36,13 +36,13 @@ public class TestSingleThreadReader {
 	
 	@Test
 	public void testReader1() {
-		List<BufferedReader> bfList = reader.loadFiles(lfList);
+		reader.loadFiles(lfList);
 		try {			
-			assertTrue(bfList.get(0).readLine().equals("aaaaaaaa"));			
+			assertTrue(lfList.get(0).getReader().readLine().equals("aaaaaaaa"));			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			closeReaders(bfList);
+			//closeReaders(bfList);
 		}
 	}
 	
@@ -52,22 +52,28 @@ public class TestSingleThreadReader {
 		LogFile lf2 = new LogFile(new File(base + "logtest.2016-02-01.log"), "logtest.2016-02-01.log");
 		lfList.add(lf);
 		lfList.add(lf2);
-		List<BufferedReader> bfList = reader.loadFiles(lfList);		
+		reader.loadFiles(lfList);		
 		try {			
-			assertTrue(bfList.get(1).readLine().equals("e"));
-			assertTrue(bfList.get(2).readLine().equals("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"));
+			assertTrue(lf.getReader().readLine().equals("e"));
+			assertTrue(lf2.getReader().readLine().equals("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			closeReaders(bfList);
+			//closeReaders(bfList);
 		}
 	}
 	
-	public void closeReaders(List<BufferedReader> bfList){
-		//close readers		
+	/**
+	 * Close all Readers in the given LogFile list
+	 * @param lfList
+	 */
+	public void closeReaders(List<LogFile> lfList){		
 		try {
-			for (BufferedReader reader : bfList){
-				reader.close();
+			for (LogFile lf : lfList){
+				BufferedReader reader = lf.getReader();
+				if(reader != null){
+					reader.close();	
+				}				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
