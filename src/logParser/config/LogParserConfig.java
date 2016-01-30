@@ -40,6 +40,4 @@ public class LogParserConfig {
 			return getDefaultTargetDirectory(); 
 		}
 	}
-	
-	
 }

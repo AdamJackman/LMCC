@@ -1,1 +1,3 @@
 /bin/
+/src/logParser/test/output/log*
+/src/logParser/test/stressTest/log*

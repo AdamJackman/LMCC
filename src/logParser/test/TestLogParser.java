@@ -61,7 +61,7 @@ public class TestLogParser {
 			fail();			
 		}
 		
-	}
+	}	
 	
 	public void testOutputPlaced() throws IOException{
 		String outputDir = config.getDefaultOutputDirectory();
