@@ -23,7 +23,7 @@ public class TestLogParserLargeInput {
 	
 	@Before
 	public void init(){
-		config = new LogParserConfig();
+		config = new LogParserConfig(true);
 		parser = new LogParser();
 	}
 	

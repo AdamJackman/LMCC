@@ -13,13 +13,16 @@ import writers.MultiThreadWriter;
  */
 public class LogParserConfig {
 	
-	//In the program's current state these 2 variables should be set to edit the behaviour to user wants.
-	private static final boolean DEV_MODE = true;	
 	private static final String PROJECT_BASE = System.getProperty("user.dir") +"/src/";
 	
+	private boolean devMode = false;
 	private int writerThreadCount = 10;
 	
 	public LogParserConfig(){		
+	}
+	
+	public LogParserConfig(boolean devMode){
+		this.devMode = devMode;
 	}
 	
 	public ILogReader getLogReader(){
@@ -36,7 +39,7 @@ public class LogParserConfig {
 	}
 	
 	public String getDefaultOutputDirectory(){
-		if(DEV_MODE){
+		if(devMode){
 			//An output folder limits having to undo damage to original files
 			return PROJECT_BASE + "logParser/test/output/";
 		} else {
@@ -47,6 +50,7 @@ public class LogParserConfig {
 	public int getWriterThreadCount(){
 		return writerThreadCount;
 	}
+	
 	public void setWriterThreadCount(int threads){
 		writerThreadCount = threads;
 	}

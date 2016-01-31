@@ -25,12 +25,12 @@ public class TestSingleThreadReader {
 	
     @Before
     public void init() {
-		LogParserConfig conf = new LogParserConfig();
+		LogParserConfig conf = new LogParserConfig(true);
 		base = conf.getDefaultTargetDirectory();
 		reader = conf.getLogReader();
-		testFile = new File(base + "logtest.2016-01-30.log");
+		testFile = new File(base + "logtest.2016-01-30-backup.log");
 		lfList = new ArrayList<LogFile>();
-		LogFile lf = new LogFile(testFile, "logtest.2016-01-30.log");
+		LogFile lf = new LogFile(testFile, "logtest.2016-01-30-backup.log");
 		lfList.add(lf);
     }
 	
@@ -48,8 +48,8 @@ public class TestSingleThreadReader {
 	
 	@Test
 	public void testReader2() {
-		LogFile lf = new LogFile(new File(base + "logtest.2016-01-31.log"), "logtest.2016-01-31.log");
-		LogFile lf2 = new LogFile(new File(base + "logtest.2016-02-01.log"), "logtest.2016-02-01.log");
+		LogFile lf = new LogFile(new File(base + "logtest.2016-01-31-backup.log"), "logtest.2016-01-31-backup.log");
+		LogFile lf2 = new LogFile(new File(base + "logtest.2016-02-01-backup.log"), "logtest.2016-02-01-backup.log");
 		lfList.add(lf);
 		lfList.add(lf2);
 		reader.loadFiles(lfList);		
