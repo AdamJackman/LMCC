@@ -18,7 +18,6 @@ public class SingleThreadWriter implements ILogWriter {
 		outputDirectory = conf.getDefaultOutputDirectory();
 	}
 	
-	@Override
 	public int write(List<LogFile> logFiles) {
 		try{
 			for(LogFile lf : logFiles){

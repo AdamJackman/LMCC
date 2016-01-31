@@ -46,7 +46,6 @@ public class LogParser {
 
 		//Sort all file names in the target directory
 		Collections.sort(logFiles, new Comparator<LogFile>() {			
-			@Override
 			//We are sorting by the calendar in the LogFile object
 			public int compare(LogFile l1, LogFile l2) {
 				return l1.getCal().compareTo(l2.getCal());

@@ -19,7 +19,6 @@ public class SingleThreadReader implements ILogReader{
 	/**
 	 * Sets up the buffered reader within a LogFile
 	 */
-	@Override
 	public void loadFiles(List<LogFile> LogFileList) {		
 		for( LogFile logFile : LogFileList){
 			String inputFile = logFile.getFile().getAbsolutePath();

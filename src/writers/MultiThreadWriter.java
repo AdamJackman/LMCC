@@ -40,7 +40,6 @@ public class MultiThreadWriter implements ILogWriter {
 	 * Threads created in batches of threadCount size.
 	 * Each thread will edit the file and place the output in the specified directory
 	 */
-	@Override
 	public int write(List<LogFile> logFiles) {
 		
 		ExecutorService executor = Executors.newFixedThreadPool(threadCount);
@@ -95,7 +94,6 @@ public class MultiThreadWriter implements ILogWriter {
 	      this.outputDirectory = outputDirectory;
 		}		
 		
-		@Override
 		public void run() {
 			try{
 				BufferedReader reader = lf.getReader(); 
