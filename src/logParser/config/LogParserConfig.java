@@ -18,6 +18,8 @@ public class LogParserConfig {
 	private static final boolean DEV_MODE = true;	
 	private static final String PROJECT_BASE = System.getProperty("user.dir") +"/src/";
 	
+	private int writerThreadCount = 20;
+	
 	public LogParserConfig(){		
 	}
 	
@@ -26,6 +28,7 @@ public class LogParserConfig {
 	}
 	
 	public ILogWriter getLogWriter(){
+		//return new SingleThreadWriter
 		return new MultiThreadWriter();
 	}
 	
@@ -41,4 +44,12 @@ public class LogParserConfig {
 			return getDefaultTargetDirectory(); 
 		}
 	}
+	
+	public int getWriterThreadCount(){
+		return writerThreadCount;
+	}
+	public void setWriterThreadCount(int threads){
+		writerThreadCount = threads;
+	}
+	
 }
