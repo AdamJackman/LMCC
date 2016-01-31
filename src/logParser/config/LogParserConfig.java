@@ -4,7 +4,6 @@ import readers.ILogReader;
 import readers.SingleThreadReader;
 import writers.ILogWriter;
 import writers.MultiThreadWriter;
-import writers.SingleThreadWriter;
 
 /**
  * Used to Configure Log Parser. 
@@ -18,7 +17,7 @@ public class LogParserConfig {
 	private static final boolean DEV_MODE = true;	
 	private static final String PROJECT_BASE = System.getProperty("user.dir") +"/src/";
 	
-	private int writerThreadCount = 20;
+	private int writerThreadCount = 10;
 	
 	public LogParserConfig(){		
 	}
@@ -28,7 +27,7 @@ public class LogParserConfig {
 	}
 	
 	public ILogWriter getLogWriter(){
-		//return new SingleThreadWriter
+		//return new SingleThreadWriter();
 		return new MultiThreadWriter();
 	}
 	
