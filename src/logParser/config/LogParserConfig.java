@@ -3,6 +3,7 @@ package logParser.config;
 import readers.ILogReader;
 import readers.SingleThreadReader;
 import writers.ILogWriter;
+import writers.MultiThreadWriter;
 import writers.SingleThreadWriter;
 
 /**
@@ -25,7 +26,7 @@ public class LogParserConfig {
 	}
 	
 	public ILogWriter getLogWriter(){
-		return new SingleThreadWriter();
+		return new MultiThreadWriter();
 	}
 	
 	public String getDefaultTargetDirectory(){
