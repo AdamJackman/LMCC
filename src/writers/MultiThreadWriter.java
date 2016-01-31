@@ -36,7 +36,7 @@ public class MultiThreadWriter implements ILogWriter {
 	}
 	
 	/**
-	 * Well create a new thread for each LogFile.
+	 * We'll create a new thread for each LogFile.
 	 * Threads created in batches of threadCount size.
 	 * Each thread will edit the file and place the output in the specified directory
 	 */
@@ -60,7 +60,8 @@ public class MultiThreadWriter implements ILogWriter {
 			}
 			//Final Shutdown
 			executor.shutdown();
-			executor.awaitTermination(TIMEOUT, TimeUnit.MINUTES);	
+			executor.awaitTermination(TIMEOUT, TimeUnit.MINUTES);
+			counter = threadCounterGiven = threadCounterWritten = 1;
 			return 0;
 		} catch (InterruptedException e){
 			System.out.println("Error: threads could not finish");
@@ -99,7 +100,7 @@ public class MultiThreadWriter implements ILogWriter {
 				BufferedReader reader = lf.getReader(); 
 				String line;
 				String outputText = "";
-
+	
 				while(true){
 					
 					//Only allow one thread to check at a time this significantly speeds up the result

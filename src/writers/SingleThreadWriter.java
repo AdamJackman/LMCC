@@ -39,6 +39,7 @@ public class SingleThreadWriter implements ILogWriter {
 			e.getStackTrace();
 			return -1;
 		} finally {
+			counter = 1;
 			closeReaders(logFiles);
 		}
 		//Successful return

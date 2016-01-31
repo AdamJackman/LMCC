@@ -16,7 +16,7 @@ public class LogParserConfig {
 	private static final String PROJECT_BASE = System.getProperty("user.dir") +"/src/";
 	
 	private boolean devMode = false;
-	private int writerThreadCount = 10;
+	private static int writerThreadCount = 100;
 	
 	public LogParserConfig(){		
 	}
@@ -51,7 +51,7 @@ public class LogParserConfig {
 		return writerThreadCount;
 	}
 	
-	public void setWriterThreadCount(int threads){
+	public static void setWriterThreadCount(int threads){
 		writerThreadCount = threads;
 	}
 	

@@ -57,7 +57,7 @@ public class LogParser {
 		reader.loadFiles(logFiles);	
 		
 		//Give this list to the writer to edit the Files
-		int res = writer.write(logFiles);
+		writer.write(logFiles);
 		
 	}
 	

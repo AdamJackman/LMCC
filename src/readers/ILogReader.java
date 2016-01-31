@@ -5,8 +5,8 @@ import java.util.List;
 import logParser.LogFile;
 
 /**
- * The job of a reader is to take as input a List of Strings representing file names.
- * From this list the Files will be loaded, placed in a list and returned.
+ * The job of a reader is to take as input a List LogFiles.
+ * Make sure we want to load the file and then load the file into the LogFile Bean.
  * 
  * @author Adam
  *
@@ -14,7 +14,7 @@ import logParser.LogFile;
 public interface ILogReader {
 
 		/**
-		 * Load the given filenames
+		 * Load the given files
 		 */
-		public void loadFiles(List<LogFile> fileNameList);
+		public void loadFiles(List<LogFile> fileList);
 }
