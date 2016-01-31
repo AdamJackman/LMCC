@@ -31,7 +31,7 @@ public class TestLogParserLargeInput {
 	@Ignore
 	//Test the speed on 2079 log files. 
 	//To prepare this test please run makeSomeFiles.bash in directory stressTest
-	//This test is ignored as it requires set up.
+	//This test is ignored as it requires set up.	
 	public void stressTestOutput() throws IOException{
 		LogParser stressedParser = new LogParser(System.getProperty("user.dir") +"/src/" + "logParser/test/stressTest/");
 		stressedParser.parseLogs();

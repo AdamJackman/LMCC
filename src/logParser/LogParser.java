@@ -50,18 +50,15 @@ public class LogParser {
 			public int compare(LogFile l1, LogFile l2) {
 				return l1.getCal().compareTo(l2.getCal());
 			}
-		});
-		
-		//Loop
+		});		
 		
 		//Give list to the readers to load into memory
 		//Reader will populate the readers of the LogFiles given
 		reader.loadFiles(logFiles);	
 		
 		//Give this list to the writer to edit the Files
-		writer.write(logFiles);
+		int res = writer.write(logFiles);
 		
-		//End Loop
 	}
 	
 	/**
